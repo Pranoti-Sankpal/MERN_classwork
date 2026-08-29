@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aadhar Card Generator</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            text-align: center;
+        }
+
+        /* FORM */
+        .form-box {
+            width: 300px;
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input, textarea {
+            width: 90%;
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* AADHAR CARD */
+        .card {
+            display: none;
+            width: 350px;
+            margin: 20px auto;
+            background: white;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+            padding: 10px;
+        }
+
+        .header {
+            background: orange;
+            color: white;
+            font-weight: bold;
+            padding: 5px;
+        }
+
+        .content {
+            display: flex;
+            padding: 10px;
+        }
+
+        .photo {
+            width: 80px;
+            height: 100px;
+            border: 1px solid black;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .details {
+            text-align: left;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        function generateCard() {
+
+            document.getElementById("cname").innerText =
+                document.getElementById("name").value;
+
+            document.getElementById("cdob").innerText =
+                document.getElementById("dob").value;
+
+            document.getElementById("ccontact").innerText =
+                document.getElementById("contact").value;
+
+            document.getElementById("caddress").innerText =
+                document.getElementById("address").value;
+
+            document.getElementById("card").style.display = "block";
+
+            return false; // prevent page reload
+        }
+    </script>
+</head>
+
+<body>
+
+<h2>Aadhar Card Form</h2>
+
+<!-- FORM -->
+<div class="form-box">
+    <form onsubmit="return generateCard()">
+
+        <input type="text" id="name" placeholder="Enter Name" required><br>
+
+        <input type="date" id="dob" required><br>
+
+        <input type="text" id="contact" placeholder="Contact Number" required><br>
+
+        <textarea id="address" placeholder="Enter Address" required></textarea><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+</div>
+
+<!-- AADHAR CARD -->
+<div class="card" id="card">
+
+    <div class="header">Government of India</div>
+
+    <div class="content">
+        <div class="photo">Photo</div>
+
+        <div class="details">
+            <p><b>Name:</b> <span id="cname"></span></p>
+            <p><b>DOB:</b> <span id="cdob"></span></p>
+            <p><b>Contact:</b> <span id="ccontact"></span></p>
+            <p><b>Address:</b> <span id="caddress"></span></p>
+        </div>
+    </div>
+
+    <div class="footer">Aadhar - Aam Aadmi Ka Adhikar</div>
+
+</div>
+
+</body>
+</html>
